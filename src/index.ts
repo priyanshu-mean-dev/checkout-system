@@ -9,13 +9,15 @@ const pricingRules: PricingRules = {
     vga: { name: 'VGA adaptor', price: 30.0 },
   };
   
+  // Run test case 1 => expected total $249
   const co = new Checkout(pricingRules);
   co.scan("atv");
   co.scan("atv");
   co.scan("atv");
   co.scan("vga");
-  console.log("Total expected:", co.total()); // Output: $249.00
+  console.log("Total expected: $", co.total());
   
+  // Run test case 2 => expected total $2718.95
   const co2 = new Checkout(pricingRules);
   co2.scan("atv");
   co2.scan("ipd");
@@ -24,4 +26,4 @@ const pricingRules: PricingRules = {
   co2.scan("ipd");
   co2.scan("ipd");
   co2.scan("ipd");
-  console.log("Total expected:", co2.total());
+  console.log("Total expected: $", co2.total());
